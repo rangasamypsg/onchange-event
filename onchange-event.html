@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script> 
+  
+</head>
+<body>
+    <form name="testing" id="testing" action="#">
+        <div>
+          TextBox : <input type="text" value="This is message from textbox" />
+        </div>
+        <div>
+          Password : <input type="password" value="This is message from password" />
+        </div>
+        <div>
+          TextArea : <textarea>This is message from textarea</textarea>
+        </div>
+        <div>
+          Radio : <input name="sex" type="radio" value="Male">Male</input>
+                  <input name="sex" type="radio" value="Female">Female</input>
+        </div>
+        <div>
+          CheckBox : <input type="checkbox" name="checkme" value="1">Check Me</input>
+        </div>
+        <div>
+          File : <input type="file"></input>
+        </div>
+        <div>
+          Hidden : <input type="hidden" value="This is message from hidden"/>
+        </div>
+        <div>
+          Country : <select id="country">
+                  <option value="China">China</option>
+                  <option value="United State">United State</option>
+                   </select>
+        </div>
+        <div>
+          <input type="submit"></input> <input type="reset"></input>
+        </div>	
+      </form>
+      
+ <script>
+    
+// Document is ready
+$(document).ready(function () {
+    
+    $('body').on('change', '#testing :input, textarea, select', function () {
+
+        $(':input, textarea, select').each(function(index) {
+            var $this = $(this);
+            // alert($this.attr('type'));
+            if( $this.attr('type') == 'radio' || $this.attr('type') == 'checkbox'){
+
+                if($this.is(":checked")){
+                    alert('checked');
+                    alert($this.val());
+                } 
+                else {
+                    alert("un checked");
+                    alert($this.val());
+                }
+            }
+
+            if( $this.attr('type') == 'text' || $this.attr('type') == 'file' ){
+
+                if($this.val().length > 0){
+                      alert($this.val().length);
+                }
+            }
+
+            //alert(" value "+ $this.val() + ": type "+ $this.attr('type')); 
+        });
+    
+    });
+
+
+    $('select_tags').on('change', function() {
+        alert( $(this).find(":selected").val() );
+    });
+
+    $('radio_tags').on('change', function() {
+        alert( $(this).find(":checked").val() );
+    }); 
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Document is ready
+// $(document).ready(function () {
+//     // alert('test');
+//         $('input, textarea, select').each(function(index) {
+//             var $this = $(this);
+            
+//             alert(" value "+ $this.val() + ": type "+ $this.attr('type')); 
+//         });
+// });
+
+ </script>     
+</body>
+</html>
